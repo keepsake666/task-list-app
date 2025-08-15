@@ -1,0 +1,86 @@
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #374151;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.button:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.clearButton {
+  margin-left: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.clearButton:hover:not(:disabled) {
+  background: #dc2626;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.clearButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .button,
+  .clearButton {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+  
+  .clearButton {
+    margin-left: 0;
+  }
+}

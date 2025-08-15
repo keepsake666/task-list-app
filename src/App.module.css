@@ -1,0 +1,60 @@
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  padding: 2rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem 0.5rem;
+  }
+  
+  .container::before {
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 0.5rem 0.25rem;
+  }
+}
